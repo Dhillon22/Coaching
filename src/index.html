@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gagan's Coding Classes</title>
+
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #000;
+        line-height: 1.6;
+      }
+
+      header {
+        background: #000;
+        color: #fff;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      header p {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      section.cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+      }
+
+      .card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .card h2 {
+        margin-top: 0;
+      }
+
+      .roadmap button {
+        display: block;
+        width: 100%;
+        background: #f4f4f4;
+        border: none;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+        text-align: left;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .roadmap button:hover {
+        background: #e0e0e0;
+      }
+
+      .cta {
+        text-align: center;
+        padding: 2rem;
+        background: #eee;
+        border-radius: 12px;
+        margin: 2rem auto;
+        max-width: 800px;
+      }
+
+      .cta button {
+        background: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 0.5rem;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 600px;
+      }
+
+      .close {
+        float: right;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 500px) {
+        .card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Gagan's Online Coding Classes</h1>
+      <p>Teaching coding to students from 7th to 12th grade</p>
+      <p>Best for skill learning and freelancing</p>
+    </header>
+
+    <section class="cards-grid">
+      <div class="card" data-aos="fade-up">
+        <h2>Why Join?</h2>
+        <ul>
+          <li>
+            11+ years of experience with Infosys, Sapient & Big 4 companies
+          </li>
+          <li>Hands-on training in real coding technologies</li>
+          <li>Helps your child compete with real-world skills</li>
+        </ul>
+      </div>
+
+      <div class="card" data-aos="fade-up">
+        <h2>What You'll Learn</h2>
+        <ul>
+          <li>OOP Concepts</li>
+          <li>Programming Basics</li>
+          <li>Web Dev (HTML, CSS, JavaScript, React)</li>
+          <li>Backend Dev (Node.js)</li>
+          <li>Mobile App Dev (React Native)</li>
+        </ul>
+      </div>
+      <div class="card" data-aos="fade-up">
+        <h2>Pricing</h2>
+        <ul>
+          <li><strong>Basic Plan (4 Weeks):</strong> ₹2,999</li>
+          <li><strong>Full Program (10 Weeks):</strong> ₹6,999</li>
+        </ul>
+        <p>Discounts for siblings and referrals.</p>
+      </div>
+
+      <div class="card" data-aos="fade-up">
+        <h2>FAQs for Parents</h2>
+        <ul>
+          <li><strong>Need experience?</strong> No, we start from scratch.</li>
+          <li>
+            <strong>Missed a class?</strong> Get recordings & personal help.
+          </li>
+          <li><strong>Live sessions?</strong> Yes, live on Zoom or Meet.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="cards-grid">
+      <div class="card" data-aos="fade-up">
+        <h2>Course Roadmap</h2>
+        <div class="roadmap">
+          <button onclick="openModal('week1')">
+            Week 1–2: Programming Basics
+          </button>
+          <button onclick="openModal('week3')">
+            Week 3–4: JavaScript & Web
+          </button>
+          <button onclick="openModal('week5')">
+            Week 5–6: React + UI Design
+          </button>
+          <button onclick="openModal('week7')">
+            Week 7–8: Backend with Node.js
+          </button>
+          <button onclick="openModal('week9')">
+            Week 9–10: Mobile App + Final Project
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="cta" data-aos="zoom-in">
+      <h2>Ready to Join?</h2>
+      <p>Contact us via WhatsApp or Email</p>
+      <p>
+        <strong>WhatsApp:</strong>
+        <a href="https://wa.me/919888266339">9888266339</a>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:Khalsa.dhillon22@gmail.com"
+          >Khalsa.dhillon22@gmail.com</a
+        >
+      </p>
+      <button onclick="window.location.href='https://wa.me/919888266339'">
+        Join Now
+      </button>
+      <button onclick="openModal('enquiryModal')">Enquiry</button>
+    </div>
+
+    <!-- Enquiry Modal with Google Form -->
+    <div id="enquiryModal" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('enquiryModal')" class="close">&times;</span>
+        <iframe
+          src="https://forms.gle/DD4FEB9co9EfxeaH8"
+          width="100%"
+          height="400px"
+          frameborder="0"
+          style="border: none"
+          >Loading…</iframe
+        >
+      </div>
+    </div>
+
+    <!-- Roadmap Modals -->
+    <div id="week1" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('week1')" class="close">&times;</span>
+        <h3>Week 1–2</h3>
+        <ul>
+          <li>Variables, Conditions</li>
+          <li>Loops, Functions</li>
+          <li>Project: Guess the Number</li>
+        </ul>
+      </div>
+    </div>
+    <div id="week3" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('week3')" class="close">&times;</span>
+        <h3>Week 3–4</h3>
+        <ul>
+          <li>HTML/CSS/JS Basics</li>
+          <li>DOM & Forms</li>
+          <li>Mini Project: To-Do App</li>
+        </ul>
+      </div>
+    </div>
+    <div id="week5" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('week5')" class="close">&times;</span>
+        <h3>Week 5–6</h3>
+        <ul>
+          <li>React Basics</li>
+          <li>State, Props</li>
+          <li>Project: Portfolio App</li>
+        </ul>
+      </div>
+    </div>
+    <div id="week7" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('week7')" class="close">&times;</span>
+        <h3>Week 7–8</h3>
+        <ul>
+          <li>Node.js, Express</li>
+          <li>APIs, MongoDB</li>
+          <li>Project: Notes API</li>
+        </ul>
+      </div>
+    </div>
+    <div id="week9" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('week9')" class="close">&times;</span>
+        <h3>Week 9–10</h3>
+        <ul>
+          <li>React Native</li>
+          <li>Styling, Navigation</li>
+          <li>Final Project + Hosting</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+
+      function openModal(id) {
+        document.getElementById(id).style.display = "block";
+      }
+
+      function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        document.querySelectorAll(".modal").forEach((modal) => {
+          if (event.target == modal) modal.style.display = "none";
+        });
+      };
+    </script>
+  </body>
+</html>
